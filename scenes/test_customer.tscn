@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://8cxbnjc3kgod"]
+[gd_scene format=3 uid="uid://8cxbnjc3kgod"]
 
 [ext_resource type="Script" uid="uid://de6am6i2vyaem" path="res://scripts/test_customer.gd" id="1_ljx8c"]
 [ext_resource type="Texture2D" uid="uid://bqekldnxhjty5" path="res://assets/prototypeCustomer.png" id="1_xaw6s"]
@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljx8c"]
 size = Vector2(237, 386)
 
-[node name="Test_Customer" type="Area2D"]
+[node name="Test_Customer" type="Area2D" unique_id=180401904]
 script = ExtResource("1_ljx8c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=504091932]
 texture = ExtResource("1_xaw6s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035881768]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ljx8c")
