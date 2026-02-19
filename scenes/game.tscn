@@ -7,11 +7,13 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
-offset_left = -319.0
-offset_top = 167.0
-offset_right = -279.0
-offset_bottom = 190.0
+[node name="CustomerDialogue" type="Label" parent="."]
+z_index = 2
+offset_left = -498.0
+offset_top = 8.0
+offset_right = -144.0
+offset_bottom = 165.0
+text = "ghello everynyan"
 
 [node name="Countertop" type="Node2D" parent="."]
 
@@ -21,4 +23,4 @@ position = Vector2(13, 369)
 texture = ExtResource("1_uwrxv")
 
 [node name="Test_Customer" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(224, -39)
+position = Vector2(295, -76)
