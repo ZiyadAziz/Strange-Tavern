@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://boke01ni5eisw"]
+[gd_scene format=3 uid="uid://boke01ni5eisw"]
 
 [ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/prototypeCountertop.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://8cxbnjc3kgod" path="res://scenes/test_customer.tscn" id="2_yqjtg"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=891971933]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=267170569]
 
-[node name="CustomerDialogue" type="Label" parent="."]
+[node name="CustomerDialogue" type="Label" parent="." unique_id=1269525547]
 z_index = 2
 offset_left = -498.0
 offset_top = 8.0
@@ -15,12 +15,12 @@ offset_right = -144.0
 offset_bottom = 165.0
 text = "ghello everynyan"
 
-[node name="Countertop" type="Node2D" parent="."]
+[node name="Countertop" type="Node2D" parent="." unique_id=401449609]
 
-[node name="Sprite2D" type="Sprite2D" parent="Countertop"]
+[node name="Sprite2D" type="Sprite2D" parent="Countertop" unique_id=439090657]
 z_index = 1
 position = Vector2(13, 369)
 texture = ExtResource("1_uwrxv")
 
-[node name="Test_Customer" parent="." instance=ExtResource("2_yqjtg")]
+[node name="Test_Customer" parent="." unique_id=1121484241 instance=ExtResource("2_yqjtg")]
 position = Vector2(295, -76)
