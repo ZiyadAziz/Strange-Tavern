@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bn5maxh23b082" path="res://scripts/game_manager.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/prototypeCountertop.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://8cxbnjc3kgod" path="res://scenes/test_customer.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://io85mchdjk2u" path="res://scenes/test_customer2.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=891971933]
 
@@ -26,5 +27,10 @@ z_index = 1
 position = Vector2(13, 369)
 texture = ExtResource("1_uwrxv")
 
-[node name="Test_Customer" parent="." unique_id=1121484241 instance=ExtResource("2_yqjtg")]
-position = Vector2(-247, -78)
+[node name="Customers" type="Node" parent="." unique_id=2075041887]
+
+[node name="Test_Customer" parent="Customers" unique_id=1121484241 instance=ExtResource("2_yqjtg")]
+position = Vector2(-291, -77)
+
+[node name="Test_Customer2" parent="Customers" unique_id=180401904 instance=ExtResource("4_lbhrr")]
+position = Vector2(256, -72)
