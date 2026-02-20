@@ -1,19 +1,23 @@
 [gd_scene format=3 uid="uid://boke01ni5eisw"]
 
+[ext_resource type="Script" uid="uid://bn5maxh23b082" path="res://scripts/game_manager.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/prototypeCountertop.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://8cxbnjc3kgod" path="res://scenes/test_customer.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=891971933]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=267170569]
+[node name="GameManager" type="Node" parent="." unique_id=384307586]
+script = ExtResource("1_lnu2h")
 
-[node name="CustomerDialogue" type="Label" parent="." unique_id=1269525547]
+[node name="CustomerDialogue" type="Label" parent="GameManager" unique_id=1269525547]
 z_index = 2
 offset_left = -498.0
 offset_top = 8.0
 offset_right = -144.0
 offset_bottom = 165.0
 text = "ghello everynyan"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=267170569]
 
 [node name="Countertop" type="Node2D" parent="." unique_id=401449609]
 
