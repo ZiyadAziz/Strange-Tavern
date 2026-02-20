@@ -11,10 +11,10 @@ script = ExtResource("1_lnu2h")
 
 [node name="CustomerDialogue" type="Label" parent="GameManager" unique_id=1269525547]
 z_index = 2
-offset_left = -498.0
-offset_top = 8.0
-offset_right = -144.0
-offset_bottom = 165.0
+offset_left = -229.0
+offset_top = 150.0
+offset_right = 125.0
+offset_bottom = 307.0
 text = "ghello everynyan"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=267170569]
@@ -27,4 +27,4 @@ position = Vector2(13, 369)
 texture = ExtResource("1_uwrxv")
 
 [node name="Test_Customer" parent="." unique_id=1121484241 instance=ExtResource("2_yqjtg")]
-position = Vector2(295, -76)
+position = Vector2(-247, -78)

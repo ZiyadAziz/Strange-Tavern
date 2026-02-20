@@ -2,6 +2,9 @@ extends Area2D
 
 @onready var game_manager = get_node("/root/Game/GameManager")
 
+# Preload the order scene
+const OrderScene = preload("res://scenes/test_order.tscn")
+
 #These dont need to be edited 
 var dialogue := "Burger with ketchup and extra mustard please"
 var order_taken := false 
@@ -15,10 +18,18 @@ var order:= ["Burger", 1, 2, 2]
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		game_manager.update_dialogue(dialogue)
-		print("Sprite Clicked!")
-		print(dialogue)
-		print(order)
+		print("hello")
 		
 		if !order_taken:
-			#need to figure out how to instantiate the order
-			pass
+			instantiate_order()
+			order_taken = true
+
+func instantiate_order():
+	var new_order = OrderScene.instantiate()
+	
+	# Pass the order data to the order scene
+	new_order.setup(order)
+	
+	# Add it to the scene tree, not sure what should be adding it, doing the customer themselves so that the order can queuefree the customer
+	#game_manager.add_child(new_order)
+	self.add_child(new_order)
