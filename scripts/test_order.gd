@@ -32,9 +32,9 @@ func _gui_input(event: InputEvent) -> void:
 			#currently a different order is highlighted
 			if game_manager.highlighted_order != -1:
 				game_manager.set_current_order(order_number)
-				prep_window.show_prep(order_data)
+				prep_window.show_prep(order_data, self)
 				
 			#the prep window isn't on screen, bring it in 
 			else:
 				game_manager.set_current_order(order_number)
-				prep_window.show_prep(order_data)
+				prep_window.show_prep(order_data, self)
