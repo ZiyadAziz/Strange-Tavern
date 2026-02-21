@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/images/prototypeCountertop.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://8cxbnjc3kgod" path="res://scenes/test_customer.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://io85mchdjk2u" path="res://scenes/test_customer2.tscn" id="4_lbhrr"]
-[ext_resource type="Script" uid="uid://dc3ia8hjvx8c2" path="res://scenes/world_audio_manager.gd" id="5_iywne"]
+[ext_resource type="Script" path="res://scenes/world_audio_manager.gd" id="5_iywne"]
 [ext_resource type="AudioStream" uid="uid://onakt34c65s4" path="res://assets/muzak/A Lovely Trip.mp3" id="6_ir15t"]
 [ext_resource type="AudioStream" uid="uid://bofjftym6ltve" path="res://assets/muzak/A Touch of Class.mp3" id="7_ca42v"]
 [ext_resource type="AudioStream" uid="uid://dn7dvcoy64nju" path="res://assets/muzak/Bucolic Mood.mp3" id="8_rysoc"]
@@ -37,28 +37,30 @@ script = ExtResource("1_lnu2h")
 
 [node name="CustomerDialogue" type="Label" parent="GameManager" unique_id=1269525547]
 z_index = 2
-offset_left = -229.0
-offset_top = 150.0
-offset_right = 125.0
-offset_bottom = 307.0
+offset_left = -118.0
+offset_top = 231.0
+offset_right = 236.0
+offset_bottom = 388.0
 text = "ghello everynyan"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=267170569]
+zoom = Vector2(0.6, 0.6)
 
 [node name="Countertop" type="Node2D" parent="." unique_id=401449609]
 
 [node name="Sprite2D" type="Sprite2D" parent="Countertop" unique_id=439090657]
 z_index = 1
-position = Vector2(13, 369)
+position = Vector2(11, 482)
+scale = Vector2(1.3427719, 1.1717222)
 texture = ExtResource("1_uwrxv")
 
 [node name="Customers" type="Node" parent="." unique_id=2075041887]
 
 [node name="Test_Customer" parent="Customers" unique_id=1121484241 instance=ExtResource("2_yqjtg")]
-position = Vector2(-291, -77)
+position = Vector2(-215, 0)
 
 [node name="Test_Customer2" parent="Customers" unique_id=180401904 instance=ExtResource("4_lbhrr")]
-position = Vector2(256, -72)
+position = Vector2(161, 0)
 
 [node name="WorldAudioManager" type="Node" parent="." unique_id=1319270036]
 script = ExtResource("5_iywne")
@@ -67,4 +69,3 @@ script = ExtResource("5_iywne")
 stream = SubResource("AudioStreamPlaylist_pl11u")
 volume_db = -20.0
 autoplay = true
-bus = &"Music"
