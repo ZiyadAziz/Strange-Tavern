@@ -5,6 +5,7 @@ extends Panel
 var player_order := []
 var customer_order := []
 var current_order_node = null
+var correct_order := false
 
 #dont know if theres a better way to do this button/ui system, but it should work soooooooo
 @onready var burger: Button = $Burger
@@ -65,13 +66,26 @@ func hide_prep():
 
 #this should call the complete order stuff
 func _on_submit_pressed() -> void:
-	game_manager.complete_order(current_order_node.order_number)
+	print(player_order) #need to actually compare the player order to the customer order
+	
+	#comparing if the orders are the same
+	var sorted_customer = customer_order.duplicate()
+	var sorted_player = player_order.duplicate()
+	
+	sorted_customer.sort()
+	sorted_player.sort()
+	
+	if sorted_customer == sorted_player: 
+		correct_order = true
+	else:
+		correct_order = false
+	
+	game_manager.complete_order(current_order_node.order_number, correct_order)
 	
 	current_order_node.get_parent().queue_free() #need to figure out how to add a timer so that the customer can go off screen first, not sure how since this stuff is queue freeing
 	current_order_node.queue_free()
 	
-	print(player_order) #need to actually compare the player order to the customer order
-	hide_prep()
+	hide_prep() #this also resets a bunch of variables too 
 
 func _on_clear_pressed() -> void:
 	player_order = []

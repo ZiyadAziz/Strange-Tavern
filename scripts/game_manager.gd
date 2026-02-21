@@ -38,13 +38,17 @@ func add_order() -> int:
 
 # Completes an order by number
 # Removes it from active orders
-func complete_order(order_number: int) -> void:
+func complete_order(order_number: int, accuracy: bool) -> void:
+	update_dialogue("")
 	if order_number in orders:
 		orders.erase(order_number)
 		
-		# If the completed order was highlighted, reset it
+		# If the completed order was highlighted, reset it, i think this is always the case since you can't complete an unhighlighted order
 		if highlighted_order == order_number:
 			highlighted_order = -1
+			
+	if accuracy: 
+		score += 1
 			
 func set_current_order(order_number: int):
 	highlighted_order = order_number
