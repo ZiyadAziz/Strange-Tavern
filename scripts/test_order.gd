@@ -1,5 +1,8 @@
 extends Control
 
+@onready var game_manager = get_node("/root/Game/GameManager")
+@onready var prep_window = get_node("/root/Game/PrepWindow")
+
 var order_data := []
 
 #need to know which ordernumber it is for when we prep the food
@@ -19,3 +22,19 @@ func setup(data, number):
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		print(order_data)
+		
+		#Order is currently highlighted, which means to unselect it, otherwise select the order
+		if game_manager.highlighted_order == order_number:
+			game_manager.set_current_order(-1)
+			#this should also make the prep_window tween away
+			prep_window.hide_prep(order_data)
+		else:
+			#currently a different order is highlighted
+			if game_manager.highlighted_order != -1:
+				game_manager.set_current_order(order_number)
+				prep_window.show_prep(order_data)
+				
+			#the prep window isn't on screen, bring it in 
+			else:
+				game_manager.set_current_order(order_number)
+				prep_window.show_prep(order_data)

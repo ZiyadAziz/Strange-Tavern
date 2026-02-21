@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cjws5sbn6vajc"]
+
+[ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/images/prototypeCountertop.png" id="1_efg7g"]
+[ext_resource type="Script" uid="uid://c4knid00mrdll" path="res://scripts/prep_window.gd" id="1_iqc5x"]
+
+[node name="PrepWindow" type="Panel" unique_id=258990176]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -633.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iqc5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=801136370]
+position = Vector2(279, 439.00006)
+scale = Vector2(0.31531015, 1.7181997)
+texture = ExtResource("1_efg7g")
+
+[node name="Label" type="Label" parent="." unique_id=402476618]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 11.0
+offset_right = 256.0
+offset_bottom = 34.0
+text = "Food Prep!!!"
+
+[node name="Burger" type="Button" parent="." unique_id=2098301070]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 175.0
+offset_right = 247.0
+offset_bottom = 267.0
+text = "Burger"
+
+[node name="Burrito" type="Button" parent="." unique_id=257303684]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 177.0
+offset_right = 491.0
+offset_bottom = 266.0
+text = "Burritor"
+
+[node name="Pancake" type="Button" parent="." unique_id=1975516937]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 282.0
+offset_right = 248.0
+offset_bottom = 370.0
+text = "Pankace"
+
+[node name="Milkshake" type="Button" parent="." unique_id=370832220]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 285.0
+offset_right = 486.0
+offset_bottom = 372.0
+text = "Milkshake"

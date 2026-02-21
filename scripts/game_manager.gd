@@ -45,3 +45,6 @@ func complete_order(order_number: int) -> void:
 		# If the completed order was highlighted, reset it
 		if highlighted_order == order_number:
 			highlighted_order = -1
+			
+func set_current_order(order_number: int):
+	highlighted_order = order_number

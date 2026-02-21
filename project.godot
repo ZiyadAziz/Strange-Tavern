@@ -20,3 +20,7 @@ config/version="1.0"
 run/main_scene="uid://boke01ni5eisw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dobr5a7m2ksqc"
+
+[display]
+
+window/stretch/mode="viewport"
