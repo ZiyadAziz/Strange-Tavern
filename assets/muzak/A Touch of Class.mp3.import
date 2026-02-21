@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bofjftym6ltve"
+path="res://.godot/imported/A Touch of Class.mp3-7dc40500e0d4285625c25f4da0290500.mp3str"
+
+[deps]
+
+source_file="res://assets/muzak/A Touch of Class.mp3"
+dest_files=["res://.godot/imported/A Touch of Class.mp3-7dc40500e0d4285625c25f4da0290500.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

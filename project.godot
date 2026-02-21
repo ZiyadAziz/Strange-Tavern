@@ -14,7 +14,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Brackeys 2026.1 Jam"
+config/name="Universe Diner!"
+config/description="You don't seem to be from around these parts..."
+config/version="1.0"
 run/main_scene="uid://boke01ni5eisw"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dobr5a7m2ksqc"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cks1gxeh0ti4y"
+path="res://.godot/imported/Summer Breezes.mp3-f7d7adcf5b8c3221c7ddea729bc8d662.mp3str"
+
+[deps]
+
+source_file="res://assets/muzak/Summer Breezes.mp3"
+dest_files=["res://.godot/imported/Summer Breezes.mp3-f7d7adcf5b8c3221c7ddea729bc8d662.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
