@@ -27,7 +27,7 @@ func _gui_input(event: InputEvent) -> void:
 		if game_manager.highlighted_order == order_number:
 			game_manager.set_current_order(-1)
 			#this should also make the prep_window tween away
-			prep_window.hide_prep(order_data)
+			prep_window.hide_prep()
 		else:
 			#currently a different order is highlighted
 			if game_manager.highlighted_order != -1:
