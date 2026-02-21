@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxm71ohg6w20p"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_gugna"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=960428001]
+stream = SubResource("AudioStreamPlaylist_gugna")
+autoplay = true

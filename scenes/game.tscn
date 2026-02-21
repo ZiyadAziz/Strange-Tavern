@@ -1,9 +1,34 @@
 [gd_scene format=3 uid="uid://boke01ni5eisw"]
 
 [ext_resource type="Script" uid="uid://bn5maxh23b082" path="res://scripts/game_manager.gd" id="1_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/prototypeCountertop.png" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/images/prototypeCountertop.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://8cxbnjc3kgod" path="res://scenes/test_customer.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://io85mchdjk2u" path="res://scenes/test_customer2.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://dc3ia8hjvx8c2" path="res://scenes/world_audio_manager.gd" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://onakt34c65s4" path="res://assets/muzak/A Lovely Trip.mp3" id="6_ir15t"]
+[ext_resource type="AudioStream" uid="uid://bofjftym6ltve" path="res://assets/muzak/A Touch of Class.mp3" id="7_ca42v"]
+[ext_resource type="AudioStream" uid="uid://dn7dvcoy64nju" path="res://assets/muzak/Bucolic Mood.mp3" id="8_rysoc"]
+[ext_resource type="AudioStream" uid="uid://dxvi2w1m4b853" path="res://assets/muzak/Departure.mp3" id="9_ssvqc"]
+[ext_resource type="AudioStream" uid="uid://c02n2r6xhois1" path="res://assets/muzak/Harvey Wallbanger.mp3" id="10_264po"]
+[ext_resource type="AudioStream" uid="uid://g4a2qqin28sb" path="res://assets/muzak/Just Misty.mp3" id="11_1kice"]
+[ext_resource type="AudioStream" uid="uid://orpstsfhc1mh" path="res://assets/muzak/Mr. Satisfied.mp3" id="12_5newe"]
+[ext_resource type="AudioStream" uid="uid://cks1gxeh0ti4y" path="res://assets/muzak/Summer Breezes.mp3" id="13_37s47"]
+[ext_resource type="AudioStream" uid="uid://cghw8n6saques" path="res://assets/muzak/Sunny Jim.mp3" id="14_bt5mj"]
+[ext_resource type="AudioStream" uid="uid://6vkkrd7c2d0y" path="res://assets/muzak/To A Dark Lady.mp3" id="15_e1j6l"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_pl11u"]
+shuffle = true
+stream_count = 10
+stream_0 = ExtResource("6_ir15t")
+stream_1 = ExtResource("7_ca42v")
+stream_2 = ExtResource("8_rysoc")
+stream_3 = ExtResource("9_ssvqc")
+stream_4 = ExtResource("10_264po")
+stream_5 = ExtResource("11_1kice")
+stream_6 = ExtResource("12_5newe")
+stream_7 = ExtResource("13_37s47")
+stream_8 = ExtResource("14_bt5mj")
+stream_9 = ExtResource("15_e1j6l")
 
 [node name="Game" type="Node2D" unique_id=891971933]
 
@@ -34,3 +59,12 @@ position = Vector2(-291, -77)
 
 [node name="Test_Customer2" parent="Customers" unique_id=180401904 instance=ExtResource("4_lbhrr")]
 position = Vector2(256, -72)
+
+[node name="WorldAudioManager" type="Node" parent="." unique_id=1319270036]
+script = ExtResource("5_iywne")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1806148022]
+stream = SubResource("AudioStreamPlaylist_pl11u")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
