@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://boke01ni5eisw"]
 
 [ext_resource type="Script" uid="uid://bn5maxh23b082" path="res://scripts/game_manager.gd" id="1_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/images/prototypeCountertop.png" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dcxsiqf6qy3j8" path="res://assets/images/counter.png" id="2_trtic"]
 [ext_resource type="Script" uid="uid://dpudkw7x2pflr" path="res://scripts/customers.gd" id="3_trtic"]
 [ext_resource type="Script" uid="uid://dc3ia8hjvx8c2" path="res://scripts/world_audio_manager.gd" id="5_iywne"]
 [ext_resource type="AudioStream" uid="uid://dn7dvcoy64nju" path="res://assets/muzak/Bucolic Mood.mp3" id="8_rysoc"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cks1gxeh0ti4y" path="res://assets/muzak/Summer Breezes.mp3" id="13_37s47"]
 [ext_resource type="Script" uid="uid://cbt4rrkemg6x5" path="res://scripts/orders.gd" id="13_trtic"]
 [ext_resource type="AudioStream" uid="uid://cghw8n6saques" path="res://assets/muzak/Sunny Jim.mp3" id="14_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://c07cw4dku7jfl" path="res://assets/images/diner_background.png" id="15_ir15t"]
 [ext_resource type="PackedScene" uid="uid://cjws5sbn6vajc" path="res://scenes/prep_window.tscn" id="16_ca42v"]
 [ext_resource type="PackedScene" uid="uid://cnlw51lbke217" path="res://scenes/book.tscn" id="17_book"]
 
@@ -40,20 +41,23 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="Sprite2D" type="Sprite2D" parent="Countertop" unique_id=439090657]
 z_index = 1
-position = Vector2(-0.9999466, 435.65628)
+position = Vector2(-0.9999466, 304)
 scale = Vector2(1.10074, 0.43578756)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("2_trtic")
 
 [node name="Customers" type="Node" parent="." unique_id=2075041887]
 script = ExtResource("3_trtic")
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 2
-offset_left = -115.0
-offset_top = 377.0
-offset_right = 239.0
-offset_bottom = 534.0
+offset_left = -768.0
+offset_top = 404.0
+offset_right = 773.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "ghello everynyan"
+horizontal_alignment = 1
 
 [node name="WorldAudioManager" type="Node" parent="." unique_id=1319270036]
 script = ExtResource("5_iywne")
@@ -83,5 +87,10 @@ offset_left = 2.0
 offset_top = 5.0
 offset_right = 2.0
 offset_bottom = 5.0
+
+[node name="DinerBackground" type="Sprite2D" parent="." unique_id=647103812]
+position = Vector2(1, -83)
+scale = Vector2(1.0947917, 0.87777776)
+texture = ExtResource("15_ir15t")
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
