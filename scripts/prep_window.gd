@@ -146,7 +146,7 @@ func show_prep(order_data, order_node):
 	strawberry.hide()
 	
 	clear.show()
-	submit.show()
+	submit.hide()
 
 	
 func hide_prep():
@@ -237,7 +237,7 @@ func _on_clear_pressed() -> void:
 	strawberry.hide()
 	
 	clear.show()
-	submit.show()
+	submit.hide()
 
 func _on_burger_pressed() -> void:
 	player_order.append("Burger")
@@ -452,76 +452,6 @@ func _on_burrito_pressed() -> void:
 	
 	food_images.add_child(foodImage)
 
-func _on_pancake_pressed() -> void:
-	player_order.append("Pancake")
-	burger.hide()
-	burrito.hide()
-	pancake.hide()
-	milkshake.hide()
-	
-	ketchup.hide()
-	mustard.hide()
-	mayo.hide()
-	lettuce.hide()
-	tomato.hide()
-	onion.hide()
-	patty.hide()
-	top_bun.hide()
-	
-	beef.hide()
-	chicken.hide()
-	salsa.hide()
-	cheese.hide()
-	beans.hide()
-	guac.hide()
-	wrap.hide()
-	
-	extra_cake.show()
-	strawberry_cake.show()
-	chocolate_cake.show()
-	blueberry.show()
-	syrup.show()
-	
-	vanilla.hide()
-	chocolate.hide()
-	motor_oil.hide()
-	strawberry.hide()
-
-func _on_milkshake_pressed() -> void:
-	player_order.append("Milkshake")
-	burger.hide()
-	burrito.hide()
-	pancake.hide()
-	milkshake.hide()
-	
-	ketchup.hide()
-	mustard.hide()
-	mayo.hide()
-	lettuce.hide()
-	tomato.hide()
-	onion.hide()
-	patty.hide()
-	top_bun.hide()
-	
-	beef.hide()
-	chicken.hide()
-	salsa.hide()
-	cheese.hide()
-	beans.hide()
-	guac.hide()
-	wrap.hide()
-	
-	extra_cake.hide()
-	strawberry_cake.hide()
-	chocolate_cake.hide()
-	syrup.hide()
-	
-	vanilla.show()
-	chocolate.show()
-	motor_oil.show()
-	strawberry.show()
-
-
 func _on_beef_pressed() -> void:
 	player_order.append("Beef")
 	
@@ -621,4 +551,242 @@ func _on_wrap_pressed() -> void:
 	foodImage.position = Vector2(0, 0)
 	foodImage.z_index = 10
 	
+	food_images.add_child(foodImage)
+
+
+func _on_pancake_pressed() -> void:
+	player_order.append("Pancake")
+	burger.hide()
+	burrito.hide()
+	pancake.hide()
+	milkshake.hide()
+	
+	ketchup.hide()
+	mustard.hide()
+	mayo.hide()
+	lettuce.hide()
+	tomato.hide()
+	onion.hide()
+	patty.hide()
+	top_bun.hide()
+	
+	beef.hide()
+	chicken.hide()
+	salsa.hide()
+	cheese.hide()
+	beans.hide()
+	guac.hide()
+	wrap.hide()
+	
+	extra_cake.show()
+	strawberry_cake.show()
+	chocolate_cake.show()
+	blueberry.show()
+	syrup.show()
+	
+	vanilla.hide()
+	chocolate.hide()
+	motor_oil.hide()
+	strawberry.hide()
+	
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(pancakePaths[0])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+func _on_blueberry_pressed() -> void:
+	player_order.append("Blueberry")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(pancakePaths[2])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	
+	
+	food_images.add_child(foodImage)
+
+
+func _on_strawberry_cake_pressed() -> void:
+	player_order.append("Strawberry")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(pancakePaths[1])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	
+	
+	food_images.add_child(foodImage)
+
+
+func _on_chocolate_cake_pressed() -> void:
+	player_order.append("Chocolate")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(pancakePaths[4])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	
+	
+	food_images.add_child(foodImage)
+
+
+func _on_extra_cake_pressed() -> void:
+	player_order.append("Pancake")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(pancakePaths[0])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+
+func _on_syrup_pressed() -> void:
+	player_order.append("Syrup")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(pancakePaths[3])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	
+	
+	food_images.add_child(foodImage)
+
+func _on_milkshake_pressed() -> void:
+	player_order.append("Milkshake")
+	burger.hide()
+	burrito.hide()
+	pancake.hide()
+	milkshake.hide()
+	
+	ketchup.hide()
+	mustard.hide()
+	mayo.hide()
+	lettuce.hide()
+	tomato.hide()
+	onion.hide()
+	patty.hide()
+	top_bun.hide()
+	
+	beef.hide()
+	chicken.hide()
+	salsa.hide()
+	cheese.hide()
+	beans.hide()
+	guac.hide()
+	wrap.hide()
+	
+	extra_cake.hide()
+	strawberry_cake.hide()
+	chocolate_cake.hide()
+	syrup.hide()
+	
+	vanilla.show()
+	chocolate.show()
+	motor_oil.show()
+	strawberry.show()
+	
+	submit.hide()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(milkshakePaths[0])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	
+	food_images.add_child(foodImage)
+
+
+func _on_vanilla_pressed() -> void:
+	player_order.append("Vanilla")
+	vanilla.hide()
+	chocolate.hide()
+	motor_oil.hide()
+	strawberry.hide()
+	
+	submit.show()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(milkshakePaths[4])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, -120)
+	foodImage.z_index = 9
+
+	food_images.add_child(foodImage)
+
+
+func _on_strawberry_shake_pressed() -> void:
+	player_order.append("Strawberry")
+	vanilla.hide()
+	chocolate.hide()
+	motor_oil.hide()
+	strawberry.hide()
+	
+	submit.show()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(milkshakePaths[1])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, -120)
+	foodImage.z_index = 9
+
+	food_images.add_child(foodImage)
+
+
+func _on_motor_oil_pressed() -> void:
+	player_order.append("Oil")
+	vanilla.hide()
+	chocolate.hide()
+	motor_oil.hide()
+	strawberry.hide()
+	
+	submit.show()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(milkshakePaths[2])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, -120)
+	foodImage.z_index = 9
+
+	food_images.add_child(foodImage)
+
+
+func _on_chocolate_shake_pressed() -> void:
+	player_order.append("Chocolate")
+	vanilla.hide()
+	chocolate.hide()
+	motor_oil.hide()
+	strawberry.hide()
+	
+	submit.show()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(milkshakePaths[3])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, -120)
+	foodImage.z_index = 9
+
 	food_images.add_child(foodImage)
