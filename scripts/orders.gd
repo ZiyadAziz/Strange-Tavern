@@ -30,9 +30,9 @@ class Order extends Control:
 		
 		# Button Starts offscreen and tweens right, all the orders should now appear on the left hand side
 		OrderScene.global_position.x = -1800
-		OrderScene.global_position.y = -700 + (200 * self.orderNumber)
+		OrderScene.global_position.y = -680 + (300 * self.orderNumber / 2)
 		var tween = OrderScene.create_tween()
-		tween.tween_property(OrderScene, "global_position:x", -1000, 0.2)
+		tween.tween_property(OrderScene, "global_position:x", -950, 0.2)
 		
 	func _on_order_pressed() -> void:
 		print(self.order)
