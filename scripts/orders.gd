@@ -5,8 +5,7 @@ extends Node
 @onready var DialoguePanel = get_node("/root/Game/Customers/CustomerDialogue")
 @onready var customers_node = get_node("/root/Game/Customers")
 @onready var order_beep = get_node("/root/Game/Customers/OrderUp")
-@onready var order_correct_sound = get_node("/root/Game/Customers/OrderCorrect")
-@onready var order_incorrect_sound = get_node("/root/Game/Customers/OrderIncorrect")
+
 
 class Order extends Control:
 	var customerID: int
@@ -114,10 +113,5 @@ func complete_order(order_number: int, accuracy: bool) -> void:
 			
 	if accuracy:
 		game_manager.score += 1
-		if order_correct_sound:
-			order_correct_sound.play()
-	else:
-		if order_incorrect_sound:
-			order_incorrect_sound.play()
 	
 	game_manager.customer_served()

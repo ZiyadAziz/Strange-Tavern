@@ -34,8 +34,7 @@ Mechanics:
 
 ### Sound Effects
 
-- "Slap" by Freesound Community (freesound.org)
-- "Service/Receptionist Bell" by oxidvideos (freesound.org/pixabay)
+- All sound effects provided by [freesound.org](freesound.org)
 
 ### Engine
 
