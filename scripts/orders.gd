@@ -57,7 +57,6 @@ class Order extends Control:
 # When an order is completed, is it removed from the list. 
 # The position of an order determines its position in the collection of order list panels.
 var orders: Array[Order] = []
-var maxOrders:= 4
 
 func newOrder(customerID, order):
 	var newOrderNumber = nextOrderID()
@@ -66,20 +65,27 @@ func newOrder(customerID, order):
 	self.add_child(newOrder)
 	return newOrderNumber
 
-# Make a new order ID.
+# Make a new order ID that's the lowest available.
 # Returns -1 if max orders is reached.
 func nextOrderID() -> int:
-	if orders.size() >= maxOrders:
+	if orders.size() >= game_manager.maxOrders:
 		return -1
-	var newNumber:= maxOrders + 1
+	var ids : Array[int] = []
+	var lowestAvailable = 1
 	
 	if len(orders) == 0:
-		newNumber = 1
+		return 1
 	
-	# Find the lowest available order number
 	for order in orders:
-		newNumber = min(newNumber, order.orderNumber)
-	return newNumber
+		ids.append(order.orderNumber)
+	
+	ids.sort()
+	
+	for id in ids:
+		if id == lowestAvailable:
+			lowestAvailable += 1
+	
+	return lowestAvailable
 			
 func set_current_order(order_number: int):
 	game_manager.highlightedOrder = order_number

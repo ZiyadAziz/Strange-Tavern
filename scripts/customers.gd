@@ -10,7 +10,6 @@ class Customer extends Area2D:
 	
 	static var globalCustomerID := 0
 	
-	@onready var game_manager = get_node("/root/Game/GameManager")
 	@onready var orders = get_node("/root/Game/Orders")
 	@onready var DialoguePanel = get_node("/root/Game/Customers/CustomerDialogue")
 	
@@ -79,7 +78,7 @@ func instantiate_customer(): # TODO - Extend this to randomly make customers on 
 		return
 	customerImage.texture = tex
 	customerImage.scale = Vector2(0.5, 0.5)
-	customerImage.position = Vector2(-1200, -150)
+	customerImage.position = Vector2(-1200, -15)
 	
 	var customerCollision = CollisionShape2D.new()
 	var customerRect = RectangleShape2D.new()
@@ -104,8 +103,3 @@ func _ready() -> void:
 	preload("res://assets/images/goopy_hoodie.png")
 	preload("res://assets/images/goopy_overall.png")
 	preload("res://assets/images/goopy_zipup.png")
-	
-	instantiate_customer()
-	print(customers[0].dialogue)
-	print(customers[0].order)
-	print(customers[0].customerID)

@@ -37,8 +37,8 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="Sprite2D" type="Sprite2D" parent="Countertop" unique_id=439090657]
 z_index = 1
-position = Vector2(-0.9999466, 435.65628)
-scale = Vector2(1.10074, 0.43578756)
+position = Vector2(11, 482)
+scale = Vector2(1.3427719, 1.1717222)
 texture = ExtResource("1_uwrxv")
 
 [node name="Customers" type="Node" parent="." unique_id=2075041887]
@@ -46,10 +46,10 @@ script = ExtResource("3_trtic")
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 2
-offset_left = -115.0
-offset_top = 377.0
-offset_right = 239.0
-offset_bottom = 534.0
+offset_left = -118.0
+offset_top = 231.0
+offset_right = 236.0
+offset_bottom = 388.0
 text = "ghello everynyan"
 
 [node name="WorldAudioManager" type="Node" parent="." unique_id=1319270036]
@@ -70,8 +70,3 @@ offset_bottom = -546.0
 
 [node name="Orders" type="Node" parent="." unique_id=418457843]
 script = ExtResource("13_trtic")
-
-[node name="Timer" type="Timer" parent="." unique_id=1064707853]
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
