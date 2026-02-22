@@ -36,19 +36,23 @@ class Customer extends Area2D:
 		var bob_amount := 15
 		var bob_speed := 0.4
 
-		var move_amount := 3000
+		var move_amount := randi_range(200, 2000)
 		var move_speed := 10
-		
-		# Move right
-		var move_tween = create_tween()
-		move_tween.set_loops()
-		move_tween.tween_property(self, "position:x", position.x + move_amount, move_speed)
 		
 		# Bob up and down while moving
 		var bob_tween = create_tween()
-		bob_tween.set_loops() # infinite loop
+		bob_tween.set_loops()
 		bob_tween.tween_property(self, "position:y", position.y - bob_amount, bob_speed)
 		bob_tween.tween_property(self, "position:y", position.y + bob_amount, bob_speed)
+		
+		# Move right
+		var move_tween = create_tween()
+		move_tween.tween_property(self, "position:x", position.x + move_amount, move_speed)
+		move_tween.finished.connect(func(): bob_tween.kill())
+			
+	# Called every frame. 'delta' is the elapsed time since the previous frame.
+	func _process(_delta: float) -> void:
+		pass
 	
 	func instantiate_order():
 		self.order_number = orders.newOrder(self.customerID, self.order)
