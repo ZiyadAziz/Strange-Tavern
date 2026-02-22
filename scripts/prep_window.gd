@@ -83,7 +83,6 @@ func _on_submit_pressed() -> void:
 	
 	orders_manager.complete_order(current_order_node.orderNumber, correct_order)
 	
-	current_order_node.get_parent().queue_free() #need to figure out how to add a timer so that the customer can go off screen first, not sure how since this stuff is queue freeing
 	current_order_node.queue_free()
 	
 	hide_prep() #this also resets a bunch of variables too 
