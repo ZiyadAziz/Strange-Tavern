@@ -17,10 +17,10 @@ class Order extends Control:
 	var OrderScenePackedScene = preload("res://scenes/order_panel.tscn")
 	var OrderScene: Control
 	
-	func _init(customerID, orderNumber, order):
-		self.customerID = customerID
-		self.orderNumber = orderNumber
-		self.order = order
+	func _init(newCustomerID, newOrderNumber, newOrder):
+		self.customerID = newCustomerID
+		self.orderNumber = newOrderNumber
+		self.order = newOrder
 		
 		OrderScene = OrderScenePackedScene.instantiate()
 		self.add_child(OrderScene)
@@ -60,9 +60,9 @@ var orders: Array[Order] = []
 
 func newOrder(customerID, order):
 	var newOrderNumber = nextOrderID()
-	var newOrder = Order.new(customerID, newOrderNumber, order)
-	orders.append(newOrder)
-	self.add_child(newOrder)
+	var createdOrder = Order.new(customerID, newOrderNumber, order)
+	orders.append(createdOrder)
+	self.add_child(createdOrder)
 	return newOrderNumber
 
 # Make a new order ID that's the lowest available.

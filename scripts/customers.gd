@@ -17,13 +17,13 @@ class Customer extends Area2D:
 		globalCustomerID += 1
 		return globalCustomerID
 	
-	func _init(dialogue, order):
-		self.dialogue = dialogue
-		self.order = order
+	func _init(newDialogue, newOrder):
+		self.dialogue = newDialogue
+		self.order = newOrder
 		
 		self.customerID = self.incrementCustomerID()
 		
-	func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			DialoguePanel.text = self.dialogue
 			print("Customer %s has been clicked" % self.customerID)
