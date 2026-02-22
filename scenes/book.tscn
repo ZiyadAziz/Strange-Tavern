@@ -26,6 +26,8 @@ offset_right = 331.0
 offset_bottom = 301.0
 
 [node name="BookSprite" type="Sprite2D" parent="BookPanel" unique_id=1689839213]
+z_index = 100
+z_as_relative = false
 position = Vector2(366, 228)
 scale = Vector2(1.4528345, 1.4487282)
 texture = ExtResource("3_tab1")
