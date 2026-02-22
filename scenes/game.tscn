@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cbt4rrkemg6x5" path="res://scripts/orders.gd" id="13_trtic"]
 [ext_resource type="AudioStream" uid="uid://cghw8n6saques" path="res://assets/muzak/Sunny Jim.mp3" id="14_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://cjws5sbn6vajc" path="res://scenes/prep_window.tscn" id="16_ca42v"]
+[ext_resource type="PackedScene" uid="uid://cnlw51lbke217" path="res://scenes/book.tscn" id="17_book"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_pl11u"]
 shuffle = true
@@ -75,5 +76,12 @@ script = ExtResource("13_trtic")
 
 [node name="Timer" type="Timer" parent="." unique_id=1064707853]
 one_shot = true
+
+[node name="Book" parent="." unique_id=1387150677 instance=ExtResource("17_book")]
+z_index = 20
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 2.0
+offset_bottom = 5.0
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
