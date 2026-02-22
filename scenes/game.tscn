@@ -56,9 +56,11 @@ stream = ExtResource("11_rysoc")
 
 [node name="OrderCorrect" type="AudioStreamPlayer" parent="Customers"]
 stream = ExtResource("20_correct")
+volume_db = -10.0
 
 [node name="OrderIncorrect" type="AudioStreamPlayer" parent="Customers"]
 stream = ExtResource("21_incorrect")
+volume_db = -10.0
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 20
