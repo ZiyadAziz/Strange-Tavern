@@ -1,6 +1,7 @@
 extends Panel
 
 @onready var game_manager = get_node("/root/Game/GameManager")
+@onready var orders_manager = get_node("/root/Game/Orders")
 
 var player_order := []
 var customer_order := []
@@ -80,7 +81,7 @@ func _on_submit_pressed() -> void:
 	else:
 		correct_order = false
 	
-	game_manager.complete_order(current_order_node.order_number, correct_order)
+	orders_manager.complete_order(current_order_node.orderNumber, correct_order)
 	
 	current_order_node.get_parent().queue_free() #need to figure out how to add a timer so that the customer can go off screen first, not sure how since this stuff is queue freeing
 	current_order_node.queue_free()
