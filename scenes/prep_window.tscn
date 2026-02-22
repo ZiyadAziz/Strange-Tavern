@@ -336,6 +336,13 @@ texture = ExtResource("1_efg7g")
 
 [connection signal="pressed" from="Burger" to="." method="_on_burger_pressed"]
 [connection signal="pressed" from="Burrito" to="." method="_on_burrito_pressed"]
+[connection signal="pressed" from="Beef" to="." method="_on_beef_pressed"]
+[connection signal="pressed" from="Chicken" to="." method="_on_chicken_pressed"]
+[connection signal="pressed" from="Cheese" to="." method="_on_cheese_pressed"]
+[connection signal="pressed" from="Salsa" to="." method="_on_salsa_pressed"]
+[connection signal="pressed" from="Guac" to="." method="_on_guac_pressed"]
+[connection signal="pressed" from="Beans" to="." method="_on_beans_pressed"]
+[connection signal="pressed" from="Wrap" to="." method="_on_wrap_pressed"]
 [connection signal="pressed" from="Pancake" to="." method="_on_pancake_pressed"]
 [connection signal="pressed" from="Milkshake" to="." method="_on_milkshake_pressed"]
 [connection signal="pressed" from="Ketchup" to="." method="_on_ketchup_pressed"]

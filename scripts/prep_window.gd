@@ -274,6 +274,8 @@ func _on_burger_pressed() -> void:
 	motor_oil.hide()
 	strawberry.hide()
 	
+	submit.hide()
+	
 	var foodImage = Sprite2D.new()
 	var tex = load(burgerPaths[0])
 	foodImage.texture = tex
@@ -336,11 +338,13 @@ func _on_bun_pressed() -> void:
 	patty.hide()
 	top_bun.hide()
 	
+	submit.show()
+	
 	var foodImage = Sprite2D.new()
 	var tex = load(burgerPaths[1])
 	foodImage.texture = tex
 	foodImage.scale = Vector2(1, 1)
-	foodImage.position = Vector2(0, offset)
+	foodImage.position = Vector2(0, -40 + offset)
 	foodImage.z_index = 10
 	offset -= 20
 	
@@ -436,6 +440,17 @@ func _on_burrito_pressed() -> void:
 	chocolate.hide()
 	motor_oil.hide()
 	strawberry.hide()
+	
+	submit.hide()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[0])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
 
 func _on_pancake_pressed() -> void:
 	player_order.append("Pancake")
@@ -505,3 +520,105 @@ func _on_milkshake_pressed() -> void:
 	chocolate.show()
 	motor_oil.show()
 	strawberry.show()
+
+
+func _on_beef_pressed() -> void:
+	player_order.append("Beef")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[2])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
+
+
+func _on_chicken_pressed() -> void:
+	player_order.append("Chicken")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[1])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
+
+
+func _on_cheese_pressed() -> void:
+	player_order.append("Cheese")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[7])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
+
+
+func _on_salsa_pressed() -> void:
+	player_order.append("Salsa")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[3])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
+
+
+func _on_guac_pressed() -> void:
+	player_order.append("Guac")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[4])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
+
+
+func _on_beans_pressed() -> void:
+	player_order.append("Beans")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[5])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
+
+
+func _on_wrap_pressed() -> void:
+	beef.hide()
+	chicken.hide()
+	salsa.hide()
+	cheese.hide()
+	beans.hide()
+	guac.hide()
+	wrap.hide()
+	
+	submit.show()
+	
+	for child in food_images.get_children():
+		child.queue_free()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burritoPaths[6])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
