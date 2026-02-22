@@ -37,7 +37,7 @@ class Customer extends Area2D:
 		var bob_amount := 15
 		var bob_speed := 0.4
 
-		var move_amount := 1200 + (300 * (globalCustomerID % 4 - 1))
+		var move_amount := 1150 + (350 * (globalCustomerID % 4 - 1))
 		var move_speed := 10
 		
 		# Bob up and down while moving
@@ -63,7 +63,8 @@ var customers: Array[Customer] = []
 var imagePaths: Array[String] = ["res://assets/images/flower_hoodie.png", "res://assets/images/flower_overall.png", "res://assets/images/flower_zipup.png", 
 "res://assets/images/fly_hoodie.png", "res://assets/images/fly_overall.png", "res://assets/images/fly_zipup.png",
 "res://assets/images/goopy_hoodie.png", "res://assets/images/goopy_overall.png", "res://assets/images/goopy_zipup.png",
-"res://assets/images/robit_hoodie.png", "res://assets/images/robit_overall.png", "res://assets/images/robit_zipup.png"]
+"res://assets/images/robit_hoodie.png", "res://assets/images/robit_overall.png", "res://assets/images/robit_zipup.png",
+"res://assets/images/shark_hoodie.png", "res://assets/images/shark_overall.png", "res://assets/images/shark_zipup.png"]
 
 
 func instantiate_customer(): 
@@ -109,3 +110,9 @@ func _ready() -> void:
 	preload("res://assets/images/goopy_hoodie.png")
 	preload("res://assets/images/goopy_overall.png")
 	preload("res://assets/images/goopy_zipup.png")
+	preload("res://assets/images/robit_hoodie.png")
+	preload("res://assets/images/robit_overall.png")
+	preload("res://assets/images/robit_zipup.png")
+	preload("res://assets/images/shark_hoodie.png")
+	preload("res://assets/images/shark_overall.png")
+	preload("res://assets/images/shark_zipup.png")

@@ -65,6 +65,7 @@ script = ExtResource("5_iywne")
 stream = SubResource("AudioStreamPlaylist_pl11u")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"
 
 [node name="PrepWindow" parent="." unique_id=707015827 instance=ExtResource("16_ca42v")]
 z_index = 10
