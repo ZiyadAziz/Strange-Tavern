@@ -3,6 +3,8 @@ extends Panel
 @onready var game_manager = get_node("/root/Game/GameManager")
 @onready var orders_manager = get_node("/root/Game/Orders")
 @onready var food_images = get_node("/root/Game/FoodImages")
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 var player_order := []
 var customer_order := []
@@ -240,6 +242,8 @@ func _on_clear_pressed() -> void:
 	submit.hide()
 
 func _on_burger_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Burger")
 	burger.hide()
 	burrito.hide()
@@ -287,6 +291,8 @@ func _on_burger_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_patty_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Patty")
 	
 	var foodImage = Sprite2D.new()
@@ -300,6 +306,8 @@ func _on_patty_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_mustard_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Mustard")
 	
 	var foodImage = Sprite2D.new()
@@ -313,6 +321,8 @@ func _on_mustard_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_ketchup_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Ketchup")
 	
 	var foodImage = Sprite2D.new()
@@ -328,7 +338,8 @@ func _on_ketchup_pressed() -> void:
 #NOTE: Bun should implicitly be in every burger order, but I'll leave it out for now
 func _on_bun_pressed() -> void:
 	#player_order.append("Bun")
-	
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	ketchup.hide()
 	mustard.hide()
 	mayo.hide()
@@ -352,6 +363,8 @@ func _on_bun_pressed() -> void:
 
 
 func _on_onion_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Onion")
 	
 	var foodImage = Sprite2D.new()
@@ -366,6 +379,8 @@ func _on_onion_pressed() -> void:
 
 
 func _on_tomato_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Tomato")
 	
 	var foodImage = Sprite2D.new()
@@ -380,6 +395,8 @@ func _on_tomato_pressed() -> void:
 
 
 func _on_lettuce_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Lettuce")
 	
 	var foodImage = Sprite2D.new()
@@ -394,6 +411,8 @@ func _on_lettuce_pressed() -> void:
 
 
 func _on_mayo_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Mayo")
 	
 	var foodImage = Sprite2D.new()
@@ -407,6 +426,8 @@ func _on_mayo_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_burrito_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Burrito")
 	burger.hide()
 	burrito.hide()
@@ -453,6 +474,8 @@ func _on_burrito_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_beef_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Beef")
 	
 	var foodImage = Sprite2D.new()
@@ -466,6 +489,8 @@ func _on_beef_pressed() -> void:
 
 
 func _on_chicken_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Chicken")
 	
 	var foodImage = Sprite2D.new()
@@ -479,6 +504,8 @@ func _on_chicken_pressed() -> void:
 
 
 func _on_cheese_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Cheese")
 	
 	var foodImage = Sprite2D.new()
@@ -492,6 +519,8 @@ func _on_cheese_pressed() -> void:
 
 
 func _on_salsa_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Salsa")
 	
 	var foodImage = Sprite2D.new()
@@ -505,6 +534,8 @@ func _on_salsa_pressed() -> void:
 
 
 func _on_guac_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Guac")
 	
 	var foodImage = Sprite2D.new()
@@ -518,6 +549,8 @@ func _on_guac_pressed() -> void:
 
 
 func _on_beans_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Beans")
 	
 	var foodImage = Sprite2D.new()
@@ -531,6 +564,8 @@ func _on_beans_pressed() -> void:
 
 
 func _on_wrap_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	beef.hide()
 	chicken.hide()
 	salsa.hide()
@@ -555,6 +590,8 @@ func _on_wrap_pressed() -> void:
 
 
 func _on_pancake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Pancake")
 	burger.hide()
 	burrito.hide()
@@ -601,6 +638,8 @@ func _on_pancake_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_blueberry_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Blueberry")
 	
 	var foodImage = Sprite2D.new()
@@ -615,6 +654,8 @@ func _on_blueberry_pressed() -> void:
 
 
 func _on_strawberry_cake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Strawberry")
 	
 	var foodImage = Sprite2D.new()
@@ -629,6 +670,8 @@ func _on_strawberry_cake_pressed() -> void:
 
 
 func _on_chocolate_cake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Chocolate")
 	
 	var foodImage = Sprite2D.new()
@@ -643,6 +686,8 @@ func _on_chocolate_cake_pressed() -> void:
 
 
 func _on_extra_cake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Pancake")
 	
 	var foodImage = Sprite2D.new()
@@ -657,6 +702,8 @@ func _on_extra_cake_pressed() -> void:
 
 
 func _on_syrup_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Syrup")
 	
 	var foodImage = Sprite2D.new()
@@ -670,6 +717,8 @@ func _on_syrup_pressed() -> void:
 	food_images.add_child(foodImage)
 
 func _on_milkshake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Milkshake")
 	burger.hide()
 	burrito.hide()
@@ -717,6 +766,8 @@ func _on_milkshake_pressed() -> void:
 
 
 func _on_vanilla_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Vanilla")
 	vanilla.hide()
 	chocolate.hide()
@@ -736,6 +787,8 @@ func _on_vanilla_pressed() -> void:
 
 
 func _on_strawberry_shake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Strawberry")
 	vanilla.hide()
 	chocolate.hide()
@@ -755,6 +808,8 @@ func _on_strawberry_shake_pressed() -> void:
 
 
 func _on_motor_oil_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Oil")
 	vanilla.hide()
 	chocolate.hide()
@@ -774,6 +829,8 @@ func _on_motor_oil_pressed() -> void:
 
 
 func _on_chocolate_shake_pressed() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 	player_order.append("Chocolate")
 	vanilla.hide()
 	chocolate.hide()
