@@ -8,10 +8,12 @@
 [ext_resource type="AudioStream" uid="uid://dxvi2w1m4b853" path="res://assets/muzak/Departure.mp3" id="9_ssvqc"]
 [ext_resource type="AudioStream" uid="uid://c02n2r6xhois1" path="res://assets/muzak/Harvey Wallbanger.mp3" id="10_264po"]
 [ext_resource type="AudioStream" uid="uid://g4a2qqin28sb" path="res://assets/muzak/Just Misty.mp3" id="11_1kice"]
+[ext_resource type="AudioStream" uid="uid://cmtl7kt4yj60y" path="res://assets/muzak/boop.wav" id="11_rysoc"]
 [ext_resource type="AudioStream" uid="uid://orpstsfhc1mh" path="res://assets/muzak/Mr. Satisfied.mp3" id="12_5newe"]
 [ext_resource type="AudioStream" uid="uid://cks1gxeh0ti4y" path="res://assets/muzak/Summer Breezes.mp3" id="13_37s47"]
 [ext_resource type="Script" uid="uid://cbt4rrkemg6x5" path="res://scripts/orders.gd" id="13_trtic"]
 [ext_resource type="AudioStream" uid="uid://cghw8n6saques" path="res://assets/muzak/Sunny Jim.mp3" id="14_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://b86ay57xspdxl" path="res://assets/images/ordernumber.png" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://c07cw4dku7jfl" path="res://assets/images/diner_background.png" id="15_ir15t"]
 [ext_resource type="PackedScene" uid="uid://cjws5sbn6vajc" path="res://scenes/prep_window.tscn" id="16_ca42v"]
 [ext_resource type="PackedScene" uid="uid://cnlw51lbke217" path="res://scenes/book.tscn" id="17_book"]
@@ -41,6 +43,9 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="Customers" type="Node" parent="." unique_id=2075041887]
 script = ExtResource("3_trtic")
+
+[node name="OrderUp" type="AudioStreamPlayer" parent="Customers" unique_id=1707848108]
+stream = ExtResource("11_rysoc")
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 20
@@ -95,5 +100,10 @@ z_as_relative = false
 position = Vector2(-32, 39)
 scale = Vector2(1.0947917, 1)
 texture = ExtResource("2_trtic")
+
+[node name="Ordernumber" type="Sprite2D" parent="." unique_id=1773140223]
+z_index = 19
+position = Vector2(-557, -256)
+texture = ExtResource("14_trtic")
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]

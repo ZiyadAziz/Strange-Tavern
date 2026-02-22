@@ -18,6 +18,7 @@ class Customer extends Area2D:
 		return globalCustomerID
 	
 	func _init(newDialogue, newOrder):
+
 		self.dialogue = newDialogue
 		self.order = newOrder
 		

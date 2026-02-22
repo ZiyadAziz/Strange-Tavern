@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d07r4br1qh20t"]
 
-[ext_resource type="Texture2D" uid="uid://c55gjbsebqr31" path="res://assets/images/prototypeCountertop.png" id="2_5vmi0"]
+[ext_resource type="Texture2D" uid="uid://bd8qtorg4k6np" path="res://assets/images/order_button.png" id="1_26udx"]
 
 [node name="OrderPanel" type="Button" unique_id=1390609382]
 offset_right = 391.0
 offset_bottom = 107.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=696789315]
-position = Vector2(195.5, 55)
-scale = Vector2(0.22253841, 0.21526419)
-texture = ExtResource("2_5vmi0")
+position = Vector2(54, 238.00002)
+scale = Vector2(0.8244555, 0.8192691)
+texture = ExtResource("1_26udx")
