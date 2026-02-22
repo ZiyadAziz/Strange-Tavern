@@ -9,6 +9,8 @@ var customer_order := []
 var current_order_node = null
 var correct_order := false
 
+var offset := 0
+
 @onready var burger: Button = $Burger
 @onready var ketchup: Button = $Ketchup
 @onready var mustard: Button = $Mustard
@@ -96,6 +98,7 @@ func _ready() -> void:
 
 
 func show_prep(order_data, order_node):
+	offset = 0
 	for child in food_images.get_children():
 		child.queue_free()
 	
@@ -147,6 +150,7 @@ func show_prep(order_data, order_node):
 
 	
 func hide_prep():
+	offset = 0
 	for child in food_images.get_children():
 		child.queue_free()
 
@@ -172,6 +176,7 @@ func hide_prep():
 
 #this should call the complete order stuff
 func _on_submit_pressed() -> void:
+	offset = 0
 	print(player_order) #need to actually compare the player order to the customer order
 	
 	#comparing if the orders are the same
@@ -193,6 +198,7 @@ func _on_submit_pressed() -> void:
 	hide_prep() #this also resets a bunch of variables too 
 
 func _on_clear_pressed() -> void:
+	offset = 0
 	for child in food_images.get_children():
 		child.queue_free()
 	
@@ -272,8 +278,127 @@ func _on_burger_pressed() -> void:
 	var tex = load(burgerPaths[0])
 	foodImage.texture = tex
 	foodImage.scale = Vector2(1, 1)
-	foodImage.position = Vector2(0, 0)
+	foodImage.position = Vector2(0, offset)
 	foodImage.z_index = 10
+	offset -= 15
+	
+	food_images.add_child(foodImage)
+
+func _on_patty_pressed() -> void:
+	player_order.append("Patty")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[2])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+func _on_mustard_pressed() -> void:
+	player_order.append("Mustard")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[3])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+func _on_ketchup_pressed() -> void:
+	player_order.append("Ketchup")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[4])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+#NOTE: Bun should implicitly be in every burger order, but I'll leave it out for now
+func _on_bun_pressed() -> void:
+	#player_order.append("Bun")
+	
+	ketchup.hide()
+	mustard.hide()
+	mayo.hide()
+	lettuce.hide()
+	tomato.hide()
+	onion.hide()
+	patty.hide()
+	top_bun.hide()
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[1])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+
+func _on_onion_pressed() -> void:
+	player_order.append("Onion")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[8])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+
+func _on_tomato_pressed() -> void:
+	player_order.append("Tomato")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[7])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+
+func _on_lettuce_pressed() -> void:
+	player_order.append("Lettuce")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[6])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
+	
+	food_images.add_child(foodImage)
+
+
+func _on_mayo_pressed() -> void:
+	player_order.append("Mayo")
+	
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[5])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, offset)
+	foodImage.z_index = 10
+	offset -= 20
 	
 	food_images.add_child(foodImage)
 
