@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://co6befx4ig16h"
+path="res://.godot/imported/burrito_full.png-172e9340168faf8c9980005fac3378dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/burrito_full.png"
+dest_files=["res://.godot/imported/burrito_full.png-172e9340168faf8c9980005fac3378dd.ctex"]
 
 [params]
 

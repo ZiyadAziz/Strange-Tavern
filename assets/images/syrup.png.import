@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://dy47x1scdigmi"
+path="res://.godot/imported/syrup.png-6e671173788ca64c2377d40d84de2573.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/syrup.png"
+dest_files=["res://.godot/imported/syrup.png-6e671173788ca64c2377d40d84de2573.ctex"]
 
 [params]
 

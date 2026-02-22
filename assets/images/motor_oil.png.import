@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://cqdie6k3tv3y2"
+path="res://.godot/imported/motor_oil.png-531b62589683fbe4765ce271004d7dbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/motor_oil.png"
+dest_files=["res://.godot/imported/motor_oil.png-531b62589683fbe4765ce271004d7dbb.ctex"]
 
 [params]
 

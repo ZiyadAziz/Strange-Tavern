@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://5xd3j0xulrbb"
+path="res://.godot/imported/GUAC.png-06348c2ace4d21293ee37f13b4d4dbe5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/GUAC.png"
+dest_files=["res://.godot/imported/GUAC.png-06348c2ace4d21293ee37f13b4d4dbe5.ctex"]
 
 [params]
 

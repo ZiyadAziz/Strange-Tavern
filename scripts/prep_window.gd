@@ -44,9 +44,19 @@ var correct_order := false
 @onready var clear: Button = $Clear
 @onready var submit: Button = $Submit
 
-var imagePaths: Array[String] = ["res://assets/images/bottom_bun.png", "res://assets/images/topbun.png", "res://assets/images/patty.png", 
+var burgerPaths: Array[String] = ["res://assets/images/bottom_bun.png", "res://assets/images/topbun.png", "res://assets/images/patty.png", 
 "res://assets/images/mustard.png", "res://assets/images/ketchup.png", "res://assets/images/mayo.png",
 "res://assets/images/lettice.png", "res://assets/images/tomato.png", "res://assets/images/onions.png"]
+
+var burritoPaths: Array[String] = ["res://assets/images/tortilla.png", "res://assets/images/chicken.png", "res://assets/images/beef.png", 
+"res://assets/images/salsa.png", "res://assets/images/GUAC.png", "res://assets/images/beans.png",
+"res://assets/images/burrito_full.png", "res://assets/images/shredded_cheese.png"]
+
+var pancakePaths: Array[String] = ["res://assets/images/pancake_1.png", "res://assets/images/strawberry.png", "res://assets/images/booberries.png", 
+"res://assets/images/syrup.png", "res://assets/images/chocolate_chips.png"]
+
+var milkshakePaths: Array[String] = ["res://assets/images/glass.png", "res://assets/images/strawberry_shake.png", "res://assets/images/motor_oil.png", 
+"res://assets/images/chocolate_shake.png", "res://assets/images/vanilla.png"]
 
 func _ready() -> void:
 	#burger
@@ -61,10 +71,28 @@ func _ready() -> void:
 	preload("res://assets/images/onions.png") #8
 	
 	#burrito
+	preload("res://assets/images/tortilla.png") #0
+	preload("res://assets/images/chicken.png") #1
+	preload("res://assets/images/beef.png") #2
+	preload("res://assets/images/salsa.png") #3
+	preload("res://assets/images/GUAC.png") #4
+	preload("res://assets/images/beans.png") #5
+	preload("res://assets/images/burrito_full.png") #6
+	preload("res://assets/images/shredded_cheese.png") #7
 	
 	#pancake
+	preload("res://assets/images/pancake_1.png") #0
+	preload("res://assets/images/strawberry.png") #1
+	preload("res://assets/images/booberries.png") #2
+	preload("res://assets/images/syrup.png") #3
+	preload("res://assets/images/chocolate_chips.png") #4
 	
 	#milkshake
+	preload("res://assets/images/glass.png") #0
+	preload("res://assets/images/strawberry_shake.png") #1
+	preload("res://assets/images/motor_oil.png") #2
+	preload("res://assets/images/chocolate_shake.png") #3
+	preload("res://assets/images/vanilla.png") #4
 
 
 func show_prep(order_data, order_node):
@@ -164,7 +192,6 @@ func _on_submit_pressed() -> void:
 	
 	hide_prep() #this also resets a bunch of variables too 
 
-#TODO: ADD ALL THE NEW BUTTONS TO BE SHOWN/HIDDEN
 func _on_clear_pressed() -> void:
 	for child in food_images.get_children():
 		child.queue_free()
@@ -241,14 +268,14 @@ func _on_burger_pressed() -> void:
 	motor_oil.hide()
 	strawberry.hide()
 	
-	#var foodImage = Sprite2D.new()
-	#var tex = load(imagePaths[0])
-	#foodImage.texture = tex
-	#foodImage.scale = Vector2(1, 1)
-	#foodImage.position = Vector2(0, 0)
-	#foodImage.z_index = 10
-	#
-	#food_images.add_child(foodImage)
+	var foodImage = Sprite2D.new()
+	var tex = load(burgerPaths[0])
+	foodImage.texture = tex
+	foodImage.scale = Vector2(1, 1)
+	foodImage.position = Vector2(0, 0)
+	foodImage.z_index = 10
+	
+	food_images.add_child(foodImage)
 
 func _on_burrito_pressed() -> void:
 	player_order.append("Burrito")

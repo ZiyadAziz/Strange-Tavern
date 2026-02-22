@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://brmof4hyc0ggu"
+path="res://.godot/imported/salsa.png-bcd7ad67781bbb64d08c9c18164532d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/salsa.png"
+dest_files=["res://.godot/imported/salsa.png-bcd7ad67781bbb64d08c9c18164532d7.ctex"]
 
 [params]
 

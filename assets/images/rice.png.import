@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://1vo3wmyk73rn"
+path="res://.godot/imported/rice.png-af9af2d2defd2c17b39ab7f6d583b1b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/rice.png"
+dest_files=["res://.godot/imported/rice.png-af9af2d2defd2c17b39ab7f6d583b1b9.ctex"]
 
 [params]
 

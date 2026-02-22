@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://crydsrobny38e"
+path="res://.godot/imported/tortilla.png-0d322f153ca101920edb4349fe847732.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/tortilla.png"
+dest_files=["res://.godot/imported/tortilla.png-0d322f153ca101920edb4349fe847732.ctex"]
 
 [params]
 

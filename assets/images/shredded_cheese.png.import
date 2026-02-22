@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7blpvp48bws"
-path="res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"
+uid="uid://djk4ecq3bu12f"
+path="res://.godot/imported/shredded_cheese.png-1f8c624e543ab88fa7abd7e5b12e19f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/patty.png"
-dest_files=["res://.godot/imported/patty.png-a4b13fb78a265565fbf3db55a45da991.ctex"]
+source_file="res://assets/images/shredded_cheese.png"
+dest_files=["res://.godot/imported/shredded_cheese.png-1f8c624e543ab88fa7abd7e5b12e19f1.ctex"]
 
 [params]
 
