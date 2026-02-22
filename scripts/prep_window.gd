@@ -4,7 +4,7 @@ extends Panel
 @onready var orders_manager = get_node("/root/Game/Orders")
 @onready var food_images = get_node("/root/Game/FoodImages")
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-
+@onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
 
 var player_order := []
 var customer_order := []
@@ -178,6 +178,7 @@ func hide_prep():
 
 #this should call the complete order stuff
 func _on_submit_pressed() -> void:
+	audio_stream_player_2.play()
 	offset = 0
 	print(player_order) #need to actually compare the player order to the customer order
 	

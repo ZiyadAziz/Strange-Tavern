@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c4knid00mrdll" path="res://scripts/prep_window.gd" id="1_iqc5x"]
 [ext_resource type="Texture2D" uid="uid://b2n0q0lf2u7gp" path="res://assets/images/prep_window.png" id="2_iqc5x"]
 [ext_resource type="AudioStream" uid="uid://t8kyqgbg1ma0" path="res://assets/muzak/freesound_community-slap-46792.mp3" id="4_qh1yr"]
+[ext_resource type="AudioStream" uid="uid://bcxg4hvmxilgh" path="res://assets/muzak/oxidvideos-servicereceptionist-bell-418758.mp3" id="5_2ea2n"]
 
 [node name="PrepWindow" type="Panel" unique_id=258990176]
 anchors_preset = 15
@@ -338,6 +339,10 @@ texture = ExtResource("1_efg7g")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=829858098]
 stream = ExtResource("4_qh1yr")
 volume_db = -9.123
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1593810705]
+stream = ExtResource("5_2ea2n")
+volume_db = -9.173
 
 [connection signal="pressed" from="Burger" to="." method="_on_burger_pressed"]
 [connection signal="pressed" from="Burrito" to="." method="_on_burrito_pressed"]
