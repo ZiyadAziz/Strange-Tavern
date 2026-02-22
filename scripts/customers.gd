@@ -36,6 +36,8 @@ class Customer extends Area2D:
 			if !order_taken:
 				self.instantiate_order()
 				self.order_taken = true
+	
+			_viewport.set_input_as_handled()
 				
 	func _ready():
 		var bob_amount := 15
@@ -83,13 +85,66 @@ var fontPaths: Array[String] = [
 	"res://assets/fonts/Stray.ttf"
 ]
 
-func instantiate_customer(): 
-	var dialogue := "Burger with mayo please"
+# Food hierarchy for random order generation
+var burger_toppings: Array[String] = ["Patty", "Mustard", "Ketchup", "Onion", "Tomato", "Lettuce", "Mayo"]
+var burrito_fillings: Array[String] = ["Beef", "Chicken", "Cheese", "Salsa", "Guac", "Beans"]
+var pancake_toppings: Array[String] = ["Blueberry", "Strawberry", "Chocolate", "Pancake", "Syrup"]
+var milkshake_flavors: Array[String] = ["Vanilla", "Strawberry", "Oil", "Chocolate"]
 
-	# First index = menu item
-	# Other indices = toppings
-	# Duplicate ID's = extra topping 
-	var order:= ["Burger", 1, 2, 2] 
+func generate_random_order() -> Array:
+	var order: Array = []
+	var food_type = randi_range(0, 3)
+	
+	match food_type:
+		0:  # Burger
+			order.append("Burger")
+			var num_toppings = randi_range(1, 4)
+			var available = burger_toppings.duplicate()
+			for i in range(num_toppings):
+				if available.size() > 0:
+					var idx = randi_range(0, available.size() - 1)
+					order.append(available[idx])
+					available.remove_at(idx)
+		1:  # Burrito
+			order.append("Burrito")
+			var num_fillings = randi_range(1, 4)
+			var available = burrito_fillings.duplicate()
+			for i in range(num_fillings):
+				if available.size() > 0:
+					var idx = randi_range(0, available.size() - 1)
+					order.append(available[idx])
+					available.remove_at(idx)
+		2:  # Pancake
+			order.append("Pancake")
+			var num_toppings = randi_range(1, 3)
+			var available = pancake_toppings.duplicate()
+			for i in range(num_toppings):
+				if available.size() > 0:
+					var idx = randi_range(0, available.size() - 1)
+					order.append(available[idx])
+					available.remove_at(idx)
+		3:  # Milkshake
+			order.append("Milkshake")
+			var idx = randi_range(0, milkshake_flavors.size() - 1)
+			order.append(milkshake_flavors[idx])
+	
+	return order
+
+func order_to_dialogue(order: Array) -> String:
+	if order.size() == 0:
+		return ""
+	
+	var base = order[0]
+	var ingredients = order.slice(1)
+	
+	if ingredients.size() == 0:
+		return base
+	
+	return base + " with " + ", ".join(ingredients)
+
+func instantiate_customer(): 
+	var order = generate_random_order()
+	var dialogue = order_to_dialogue(order)
 	
 	var randomFontIndex = randi_range(0, fontPaths.size() - 1)
 	var customerFont = load(fontPaths[randomFontIndex])

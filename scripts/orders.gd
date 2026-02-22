@@ -107,3 +107,5 @@ func complete_order(order_number: int, accuracy: bool) -> void:
 			
 	if accuracy: 
 		game_manager.score += 1
+	
+	game_manager.customer_served()
