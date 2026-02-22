@@ -39,21 +39,15 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="Countertop" type="Node2D" parent="." unique_id=401449609]
 
-[node name="Sprite2D" type="Sprite2D" parent="Countertop" unique_id=439090657]
-z_index = 1
-position = Vector2(-0.9999466, 304)
-scale = Vector2(1.10074, 0.43578756)
-texture = ExtResource("2_trtic")
-
 [node name="Customers" type="Node" parent="." unique_id=2075041887]
 script = ExtResource("3_trtic")
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
-z_index = 2
-offset_left = -768.0
-offset_top = 404.0
-offset_right = 773.0
-offset_bottom = 447.0
+z_index = 20
+offset_left = -380.0
+offset_top = 326.0
+offset_right = 384.0
+offset_bottom = 404.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "ghello everynyan"
@@ -83,14 +77,23 @@ one_shot = true
 
 [node name="Book" parent="." unique_id=1387150677 instance=ExtResource("17_book")]
 z_index = 20
+z_as_relative = false
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 2.0
 offset_bottom = 5.0
 
 [node name="DinerBackground" type="Sprite2D" parent="." unique_id=647103812]
+z_as_relative = false
 position = Vector2(1, -83)
 scale = Vector2(1.0947917, 0.87777776)
 texture = ExtResource("15_ir15t")
+
+[node name="Counter" type="Sprite2D" parent="." unique_id=1149091440]
+z_index = 3
+z_as_relative = false
+position = Vector2(-32, 39)
+scale = Vector2(1.0947917, 1)
+texture = ExtResource("2_trtic")
 
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]

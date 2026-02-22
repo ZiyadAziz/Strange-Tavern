@@ -83,7 +83,7 @@ func instantiate_customer():
 		return
 	customerImage.texture = tex
 	customerImage.scale = Vector2(0.5, 0.5)
-	customerImage.position = Vector2(-1200, 50)
+	customerImage.position = Vector2(-1200, -100)
 	
 	var customerCollision = CollisionShape2D.new()
 	var customerRect = RectangleShape2D.new()
