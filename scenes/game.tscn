@@ -27,6 +27,8 @@ stream_6 = ExtResource("14_bt5mj")
 
 [node name="Game" type="Node2D" unique_id=891971933]
 
+[node name="FoodImages" type="Node" parent="." unique_id=1256975658]
+
 [node name="GameManager" type="Node" parent="." unique_id=384307586]
 script = ExtResource("1_lnu2h")
 
