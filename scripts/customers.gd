@@ -3,6 +3,7 @@ extends Node
 # The class to represent an invidual customer.
 class Customer extends Area2D:
 	var dialogue: String
+	var customer_font: Font
 	var order_taken:= false
 	var order_number: int
 	var order: Array
@@ -17,16 +18,19 @@ class Customer extends Area2D:
 		globalCustomerID += 1
 		return globalCustomerID
 	
-	func _init(newDialogue, newOrder):
+	func _init(newDialogue, newOrder, newFont: Font):
 
 		self.dialogue = newDialogue
 		self.order = newOrder
+		self.customer_font = newFont
 		
 		self.customerID = self.incrementCustomerID()
 		
 	func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			DialoguePanel.text = self.dialogue
+			DialoguePanel.add_theme_font_override("font", self.customer_font)
+			DialoguePanel.add_theme_font_size_override("font_size", 44)
 			print("Customer %s has been clicked" % self.customerID)
 			
 			if !order_taken:
@@ -57,6 +61,12 @@ class Customer extends Area2D:
 	
 	func instantiate_order():
 		self.order_number = orders.newOrder(self.customerID, self.order)
+	
+	func leave():
+		# Tween customer off-screen to the right
+		var leave_tween = create_tween()
+		leave_tween.tween_property(self, "position:x", position.x + 2000, 2.0)
+		leave_tween.finished.connect(func(): queue_free())
 
 var customers: Array[Customer] = []
 
@@ -66,6 +76,12 @@ var imagePaths: Array[String] = ["res://assets/images/flower_hoodie.png", "res:/
 "res://assets/images/robit_hoodie.png", "res://assets/images/robit_overall.png", "res://assets/images/robit_zipup.png",
 "res://assets/images/shark_hoodie.png", "res://assets/images/shark_overall.png", "res://assets/images/shark_zipup.png"]
 
+var fontPaths: Array[String] = [
+	"res://assets/fonts/Glipervelz.ttf",
+	"res://assets/fonts/Poloviin.ttf",
+	"res://assets/fonts/Standard Galactic.ttf",
+	"res://assets/fonts/Stray.ttf"
+]
 
 func instantiate_customer(): 
 	var dialogue := "Burger with mayo please"
@@ -75,7 +91,10 @@ func instantiate_customer():
 	# Duplicate ID's = extra topping 
 	var order:= ["Burger", 1, 2, 2] 
 	
-	var newCustomer = Customer.new(dialogue, order)
+	var randomFontIndex = randi_range(0, fontPaths.size() - 1)
+	var customerFont = load(fontPaths[randomFontIndex])
+	
+	var newCustomer = Customer.new(dialogue, order, customerFont)
 	
 	var customerImage = Sprite2D.new()
 	var randomIndex = randi_range(0, imagePaths.size() - 1)
@@ -116,3 +135,10 @@ func _ready() -> void:
 	preload("res://assets/images/shark_hoodie.png")
 	preload("res://assets/images/shark_overall.png")
 	preload("res://assets/images/shark_zipup.png")
+
+func customer_leave(customerID: int) -> void:
+	for customer in customers:
+		if customer.customerID == customerID:
+			customer.leave()
+			customers.erase(customer)
+			return

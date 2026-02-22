@@ -49,13 +49,14 @@ stream = ExtResource("11_rysoc")
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 20
-offset_left = -380.0
-offset_top = 326.0
-offset_right = 384.0
-offset_bottom = 404.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "ghello everynyan"
+offset_left = -628.0
+offset_top = 259.0
+offset_right = 628.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "New Employees: Please consult your translation handbook.
+ (Press Spacebar)"
 horizontal_alignment = 1
 
 [node name="WorldAudioManager" type="Node" parent="." unique_id=1319270036]

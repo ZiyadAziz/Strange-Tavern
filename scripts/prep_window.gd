@@ -621,6 +621,7 @@ func _on_pancake_pressed() -> void:
 	chocolate_cake.show()
 	blueberry.show()
 	syrup.show()
+	submit.show()
 	
 	vanilla.hide()
 	chocolate.hide()

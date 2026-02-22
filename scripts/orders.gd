@@ -3,6 +3,7 @@ extends Node
 @onready var game_manager = get_node("/root/Game/GameManager")
 @onready var prep_window = get_node("/root/Game/PrepWindow")
 @onready var DialoguePanel = get_node("/root/Game/Customers/CustomerDialogue")
+@onready var customers_node = get_node("/root/Game/Customers")
 
 class Order extends Control:
 	var customerID: int
@@ -97,6 +98,7 @@ func complete_order(order_number: int, accuracy: bool) -> void:
 	
 	for order in orders:
 		if order_number == order.orderNumber:
+			customers_node.customer_leave(order.customerID)
 			orders.erase(order)
 		
 		# If the completed order was highlighted, reset it.

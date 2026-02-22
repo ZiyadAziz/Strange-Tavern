@@ -56,3 +56,10 @@ func _on_tab_4_pressed():
 
 func _on_close_button_pressed():
 	close_book()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		if is_open:
+			close_book()
+		else:
+			open_book()
