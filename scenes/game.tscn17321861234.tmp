@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://g4a2qqin28sb" path="res://assets/muzak/Just Misty.mp3" id="11_1kice"]
 [ext_resource type="AudioStream" uid="uid://orpstsfhc1mh" path="res://assets/muzak/Mr. Satisfied.mp3" id="12_5newe"]
 [ext_resource type="AudioStream" uid="uid://cks1gxeh0ti4y" path="res://assets/muzak/Summer Breezes.mp3" id="13_37s47"]
-[ext_resource type="Script" uid="uid://cbt4rrkemg6x5" path="res://scripts/orders.gd" id="13_trtic"]
 [ext_resource type="AudioStream" uid="uid://cghw8n6saques" path="res://assets/muzak/Sunny Jim.mp3" id="14_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://cjws5sbn6vajc" path="res://scenes/prep_window.tscn" id="16_ca42v"]
 [ext_resource type="Script" uid="uid://cmpk6uhbva0st" path="res://scripts/active_orders_window.gd" id="17_ssvqc"]
@@ -25,6 +24,75 @@ stream_3 = ExtResource("11_1kice")
 stream_4 = ExtResource("12_5newe")
 stream_5 = ExtResource("13_37s47")
 stream_6 = ExtResource("14_bt5mj")
+
+[sub_resource type="GDScript" id="GDScript_ca42v"]
+script/source = "extends Area2D
+
+@onready var game_manager = get_node(\"/root/Game/GameManager\")
+
+# Preload the order scene
+const OrderScene = preload(\"res://scenes/test_order.tscn\")
+
+#These dont need to be edited 
+var dialogue := \"Burger with ketchup and extra mustard please\"
+var order_taken := false 
+var order_number:int
+
+#made up example, but the first index would 
+#be the menu item (burger), and the rest would be what
+#is on the burger itself, 1 is ketchup, 2 is mustard
+#There is 2 mustards since they wanted extra
+var order:= [\"Burger\", 1, 2, 2] 
+
+var bob_amount := 15
+var bob_speed := 0.4
+
+var move_amount := 2000
+var move_speed := 25
+
+func _ready():
+	# Move right
+	var move_tween = create_tween()
+	move_tween.set_loops()
+	move_tween.tween_property(self, \"position:x\", position.x + move_amount, move_speed)
+	
+	# Bob up and down while moving
+	var bob_tween = create_tween()
+	bob_tween.set_loops() # infinite loop
+	bob_tween.tween_property(self, \"position:y\", position.y - bob_amount, bob_speed)
+	bob_tween.tween_property(self, \"position:y\", position.y + bob_amount, bob_speed)
+
+func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		game_manager.update_dialogue(dialogue)
+		print(\"hello\")
+		
+		if !order_taken:
+			instantiate_order()
+			order_taken = true
+
+func instantiate_order():
+	var new_order = OrderScene.instantiate()
+	order_number = game_manager.add_order()
+	
+	# Add it to the scene tree, not sure what should be adding it, doing the customer themselves so that the order can queuefree the customer
+	game_manager.add_child(new_order)
+	#self.add_child(new_order)
+	
+	# Pass the order data to the order scene
+	new_order.setup(order, order_number)
+
+
+#this array will track the orders currently in play, it would look like [1,2,3,4] when full
+#when an order gets completed, it would be removed from the array so if order 2 gets done
+#then it looks like [1,3,4], then when a new customer's order is taken the new order would
+#be order 2 and it would look like [1,3,4,2]. add_order and complete_order do this.
+#The reason an order needs a number is so that it differentiates the orders when you 
+#are doing the prep stuff, and the number will also allow you to position the order on the 
+#lefthand side, so each order number has its spot (like cook serve delish)
+var orders: Array[int] = [] 
+var max_orders:= 4 #this can be any number, 4 just feels right, not too overwhelming while still giving the player a choice on which order to think about
+"
 
 [node name="Game" type="Node2D" unique_id=891971933]
 
@@ -44,6 +112,12 @@ texture = ExtResource("1_uwrxv")
 
 [node name="Customers" type="Node" parent="." unique_id=2075041887]
 script = ExtResource("3_trtic")
+
+[node name="InstatiatedCustomer" parent="Customers" unique_id=180401904]
+physics_interpolation_mode = 2
+position = Vector2(-180, -8)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 2
@@ -68,11 +142,13 @@ offset_right = 1059.0
 offset_bottom = -546.0
 
 [node name="Orders" type="Node" parent="." unique_id=418457843]
-script = ExtResource("13_trtic")
+script = SubResource("GDScript_ca42v")
+
+[node name="InstantiatedOrder" parent="Orders" unique_id=1121484241]
+physics_interpolation_mode = 2
+position = Vector2(-669, -6)
 
 [node name="ActiveOrdersWindow" type="Panel" parent="." unique_id=2142081755]
-offset_left = 1465.0
-offset_top = 590.0
-offset_right = 1505.0
-offset_bottom = 630.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("17_ssvqc")

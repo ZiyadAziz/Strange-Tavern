@@ -1,0 +1,101 @@
+extends Node
+
+@onready var game_manager = get_node("/root/Game/GameManager")
+@onready var prep_window = get_node("/root/Game/PrepWindow")
+@onready var DialoguePanel = get_node("/root/Game/Customers/CustomerDialogue")
+
+class Order extends Control:
+	var customerID: int
+	var orderNumber: int
+	var order: Array
+	
+	@onready var game_manager = get_node("/root/Game/GameManager")
+	@onready var prep_window = get_node("/root/Game/PrepWindow")
+	
+	@onready var orders = get_node("/root/Game/Customers/CustomerDialogue")
+	
+	var OrderScenePackedScene = preload("res://scenes/order_panel.tscn")
+	var OrderScene: Control
+	
+	func _init(customerID, orderNumber, order):
+		self.customerID = customerID
+		self.orderNumber = orderNumber
+		self.order = order
+		
+		OrderScene = OrderScenePackedScene.instantiate()
+		self.add_child(OrderScene)
+		OrderScene.pressed.connect(_on_order_pressed)
+		
+		print("Order received: ", self.order, " ", self.orderNumber)
+		
+		# Button Starts offscreen and tweens right, all the orders should now appear on the left hand side
+		OrderScene.global_position.x = -1800
+		OrderScene.global_position.y = -700 + (200 * self.orderNumber)
+		var tween = OrderScene.create_tween()
+		tween.tween_property(OrderScene, "global_position:x", -1000, 0.2)
+		
+	func _on_order_pressed() -> void:
+		print(self.order)
+		
+		# Order is currently highlighted, which means to unselect it, otherwise select the order
+		if self.orderNumber == game_manager.highlightedOrder:
+			get_node("/root/Game/Orders").set_current_order(-1)
+			prep_window.hide_prep()
+		else:
+			# A different order is highlighted
+			if game_manager.highlightedOrder != -1:
+				get_node("/root/Game/Orders").set_current_order(self.orderNumber)
+				prep_window.show_prep(self.orderNumber, self)
+				
+			# The prep window isn't on screen, bring it in 
+			else:
+				get_node("/root/Game/Orders").set_current_order(self.orderNumber)
+				prep_window.show_prep(self.order, self)
+		
+
+# The orders currently in play.
+# When an order is completed, is it removed from the list. 
+# The position of an order determines its position in the collection of order list panels.
+var orders: Array[Order] = []
+var maxOrders:= 4
+
+func newOrder(customerID, order):
+	var newOrderNumber = nextOrderID()
+	var newOrder = Order.new(customerID, newOrderNumber, order)
+	orders.append(newOrder)
+	self.add_child(newOrder)
+	return newOrderNumber
+
+# Make a new order ID.
+# Returns -1 if max orders is reached.
+func nextOrderID() -> int:
+	if orders.size() >= maxOrders:
+		return -1
+	var newNumber:= maxOrders + 1
+	
+	if len(orders) == 0:
+		newNumber = 1
+	
+	# Find the lowest available order number
+	for order in orders:
+		newNumber = min(newNumber, order.orderNumber)
+	return newNumber
+			
+func set_current_order(order_number: int):
+	game_manager.highlightedOrder = order_number
+
+# Completes an order by number
+# Removes it from active orders
+func complete_order(order_number: int, accuracy: bool) -> void:
+	DialoguePanel.text = ""
+	
+	for order in orders:
+		if order_number == order.orderNumber:
+			orders.erase(order)
+		
+		# If the completed order was highlighted, reset it.
+		if game_manager.highlightedOrder == order_number:
+			game_manager.highlightedOrder = -1
+			
+	if accuracy: 
+		game_manager.score += 1
