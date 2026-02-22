@@ -45,7 +45,7 @@ class Order extends Control:
 			# A different order is highlighted
 			if game_manager.highlightedOrder != -1:
 				get_node("/root/Game/Orders").set_current_order(self.orderNumber)
-				prep_window.show_prep(self.orderNumber, self)
+				prep_window.show_prep(self.order, self)
 				
 			# The prep window isn't on screen, bring it in 
 			else:
