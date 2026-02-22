@@ -4,6 +4,9 @@ extends Node
 @onready var prep_window = get_node("/root/Game/PrepWindow")
 @onready var DialoguePanel = get_node("/root/Game/Customers/CustomerDialogue")
 @onready var customers_node = get_node("/root/Game/Customers")
+@onready var order_beep = get_node("/root/Game/Customers/OrderUp")
+@onready var order_correct_sound = get_node("/root/Game/Customers/OrderCorrect")
+@onready var order_incorrect_sound = get_node("/root/Game/Customers/OrderIncorrect")
 
 class Order extends Control:
 	var customerID: int
@@ -64,6 +67,10 @@ func newOrder(customerID, order):
 	var createdOrder = Order.new(customerID, newOrderNumber, order)
 	orders.append(createdOrder)
 	self.add_child(createdOrder)
+	
+	if order_beep:
+		order_beep.play()
+	
 	return newOrderNumber
 
 # Make a new order ID that's the lowest available.
@@ -105,7 +112,12 @@ func complete_order(order_number: int, accuracy: bool) -> void:
 		if game_manager.highlightedOrder == order_number:
 			game_manager.highlightedOrder = -1
 			
-	if accuracy: 
+	if accuracy:
 		game_manager.score += 1
+		if order_correct_sound:
+			order_correct_sound.play()
+	else:
+		if order_incorrect_sound:
+			order_incorrect_sound.play()
 	
 	game_manager.customer_served()

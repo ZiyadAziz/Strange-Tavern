@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cjws5sbn6vajc" path="res://scenes/prep_window.tscn" id="16_ca42v"]
 [ext_resource type="PackedScene" uid="uid://cnlw51lbke217" path="res://scenes/book.tscn" id="17_book"]
 [ext_resource type="FontFile" uid="uid://dpiamo1cofxnb" path="res://assets/fonts/Stray.ttf" id="18_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://d3dxohpxqlvo6" path="res://assets/images/main_character.png" id="19_mainchar"]
+[ext_resource type="AudioStream" path="res://assets/muzak/order_correct.wav" id="20_correct"]
+[ext_resource type="AudioStream" path="res://assets/muzak/order_incorrect.wav" id="21_incorrect"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_pl11u"]
 shuffle = true
@@ -51,6 +54,12 @@ script = ExtResource("3_trtic")
 [node name="OrderUp" type="AudioStreamPlayer" parent="Customers" unique_id=1707848108]
 stream = ExtResource("11_rysoc")
 
+[node name="OrderCorrect" type="AudioStreamPlayer" parent="Customers"]
+stream = ExtResource("20_correct")
+
+[node name="OrderIncorrect" type="AudioStreamPlayer" parent="Customers"]
+stream = ExtResource("21_incorrect")
+
 [node name="CustomerDialogue" type="Label" parent="Customers" unique_id=1269525547]
 z_index = 20
 offset_left = -628.0
@@ -61,6 +70,18 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "New Employees: Please consult your translation handbook.
  (Press Spacebar)"
+horizontal_alignment = 1
+
+[node name="BookText" type="Label" parent="Customers/CustomerDialogue" unique_id=666384280]
+z_index = 20
+layout_mode = 0
+offset_left = 837.0
+offset_top = 222.0
+offset_right = 2093.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "(Space)"
 horizontal_alignment = 1
 
 [node name="WorldAudioManager" type="Node" parent="." unique_id=1319270036]
@@ -103,7 +124,7 @@ texture = ExtResource("15_ir15t")
 [node name="Counter" type="Sprite2D" parent="." unique_id=1149091440]
 z_index = 3
 z_as_relative = false
-position = Vector2(-32, 39)
+position = Vector2(-3, 41)
 scale = Vector2(1.0947917, 1)
 texture = ExtResource("2_trtic")
 
@@ -173,4 +194,37 @@ theme_override_font_sizes/font_size = 75
 text = "100 %"
 horizontal_alignment = 1
 
+[node name="RestartButton" type="Button" parent="GameOverPanel" unique_id=1882859259]
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.5
+offset_top = -51.0
+offset_right = 153.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Play Again"
+
+[node name="MainCharacter" type="Sprite2D" parent="." unique_id=513963550]
+z_index = 150
+position = Vector2(-539, 41)
+texture = ExtResource("19_mainchar")
+
+[node name="StartButton" type="Button" parent="." unique_id=1651639072]
+z_index = 200
+offset_left = -139.0
+offset_top = -37.0
+offset_right = 161.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOverPanel/RestartButton" to="GameManager" method="_on_restart_pressed"]
+[connection signal="pressed" from="StartButton" to="GameManager" method="_on_start_pressed"]
