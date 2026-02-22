@@ -60,7 +60,7 @@ var imagePaths: Array[String] = ["res://assets/images/flower_hoodie.png", "res:/
 "res://assets/images/goopy_hoodie.png", "res://assets/images/goopy_overall.png", "res://assets/images/goopy_zipup.png"]
 
 
-func instantiate_customer(): # TODO - Extend this to randomly make customers on an interval until limit is reached
+func instantiate_customer(): 
 	var dialogue := "Burger with mayo please"
 
 	# First index = menu item

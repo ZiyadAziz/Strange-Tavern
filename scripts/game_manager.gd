@@ -29,7 +29,7 @@ func _ready() -> void:
 	make_customer()
 	
 func make_customer():
-	if (len(orders.orders) < maxOrders):
+	if (len(customers.customers) < maxOrders):
 		customers.instantiate_customer()
 		print(customers.customers[0].dialogue)
 		print(customers.customers[0].order)
